@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using PuntoDeVenta_Api.Context;
+using PuntoDeVenta_Api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +21,12 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+app.UseCors(options =>
+{
+	options.AllowAnyOrigin();
+	options.AllowAnyHeader();
+	options.AllowAnyMethod();
+});
 
 app.UseHttpsRedirection();
 
