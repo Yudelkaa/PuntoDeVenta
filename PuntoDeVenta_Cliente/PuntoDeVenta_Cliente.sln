@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoDeVenta_Cliente", "PuntoDeVenta_Cliente.csproj", "{552E97DE-00BF-4E8E-A17D-A996C909679A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuntoDeVenta_Cliente", "PuntoDeVenta_Cliente.csproj", "{552E97DE-00BF-4E8E-A17D-A996C909679A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "..\Shared\Shared.csproj", "{D220B29C-D464-4B96-A690-198B3FB253CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "..\Shared\Shared.csproj", "{D220B29C-D464-4B96-A690-198B3FB253CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoVenta_API", "..\PuntoVenta_API\PuntoVenta_API.csproj", "{A4637CBB-C326-445A-9253-317144A980C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuntoVenta_API", "..\PuntoVenta_API\PuntoVenta_API.csproj", "{A4637CBB-C326-445A-9253-317144A980C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
