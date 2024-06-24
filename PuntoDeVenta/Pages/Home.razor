@@ -1,6 +1,5 @@
-﻿@page "/hh"
+﻿@page "/"
 
-@rendermode InteractiveServer
 
 <PageTitle>Principal</PageTitle>
 
@@ -17,7 +16,7 @@
 						<button class="btn btn-success bi bi-search" @onclick="BuscarProducto"></button>
 					</div>
 					<div class="table-responsive" style="height: 300px; overflow-y: auto;">
-						<table class="table table-bordered">
+						<table class="table table-bordered text-center">
 							<thead>
 								<tr>
 									<th>Producto</th>
@@ -30,17 +29,17 @@
 							<tbody>
 								@foreach (var product in FilteredProducts)
 								{
-									<tr>
+									<tr >
 										<td>@product.Name</td>
 										<td>$@product.Price</td>
 										<td>@product.Stock</td>
 										<td>
-											<button class="btn btn-outline-danger btn-sm" @onclick="() => EliminateCarrito(product)">
+											<button class="btn btn-danger btn-sm" @onclick="() => EliminateCarrito(product)">
 												<i class="bi bi-dash-circle"></i>
 											</button>
 										</td>
-										<td>
-											<button class="btn btn-outline-success btn-sm" @onclick="() => AddCarrito(product)">
+										<td class="text-center">
+											<button class="btn btn-success btn-sm" @onclick="() => AddCarrito(product)">
 												<i class="bi bi-plus-circle"></i>
 											</button>
 										</td>
@@ -55,7 +54,7 @@
 		<div class="col-md-5">
 			<fieldset class="border-success border border-2 mt-2" style="padding: 12px">
 				<legend class="float-none w-auto px-3">Detalles de la Venta</legend>
-				<table class="table table-bordered table-responsive">
+				<table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>Producto</th>

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using PuntoDeVenta_Api.Models;
+using PuntoDeVenta_Api.Data;
+using Shared.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
