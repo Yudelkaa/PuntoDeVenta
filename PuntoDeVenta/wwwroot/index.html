@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="PuntoDeVenta.styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/factura_80mm.css" />
 </head>
 
 <body>
@@ -28,6 +29,31 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-</body>
+   
+        <script>
+		function ImprimirF() {
+
+			Tamano = "/factura_80mm.css";
+
+			const factura = document.createElement('iframe');
+			factura.style.display = 'none';
+			document.body.appendChild(factura);
+
+			const contenedorticket = document.getElementById('factura');
+
+			const facturaContenido = '<html><head><title>Factura</title> <link rel="stylesheet" href="' + Tamano + '"></head><div>' + contenedorticket.innerHTML + '</div></html>';
+
+			factura.contentWindow.document.open();
+			factura.contentWindow.document.write(facturaContenido);
+			factura.contentWindow.document.close();
+
+			factura.onload = function () {
+				factura.contentWindow.print();
+			};
+		}
+        </script>
+
+    </body>
 
 </html>
+

@@ -1,4 +1,5 @@
-﻿namespace Shared.Models
+﻿using PuntoDeVenta_Api.Models;
+namespace Shared.Models
 {
 	public class CartItem
 	{

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using PuntoDeVenta_Api.Models;
 using Shared.Models;
+using PuntoDeVenta_Api.Models;
 
 namespace PuntoDeVenta_Api.Data;
 public partial class Context : DbContext

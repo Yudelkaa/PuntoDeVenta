@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PuntoDeVenta_Api.Data;
+using PuntoDeVenta_Api.Models;
 using Shared.Models;
 
 namespace PuntoDeVenta_Api.Controllers

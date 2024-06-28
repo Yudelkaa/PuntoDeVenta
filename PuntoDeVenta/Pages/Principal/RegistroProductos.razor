@@ -1,0 +1,97 @@
+﻿@page "/registro"
+
+@inject HttpClient httpClient
+
+<EditForm Model="producto" OnValidSubmit="Guardar">
+    <DataAnnotationsValidator />
+
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h3>Registro Prioridades</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <label>ProductId</label>
+                    <InputNumber class="form-control mb-3" @bind-Value="producto.ProductId"/>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Nombre </label>
+                <InputText class="form-control" @bind-Value="producto.Name" />
+               
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>Precio</label>
+                     <InputNumber class="form-control" @bind-Value="producto.Price"/> 
+              
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>Stock</label>
+                    <InputNumber class="form-control" @bind-Value="producto.Stock" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>Descripcion</label>
+                    <InputText class="form-control" @bind-Value="producto.Description" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label>Costo</label>
+                    <InputNumber class="form-control" @bind-Value="producto.Cost" />
+
+                </div>
+            </div>
+            @if (Mensaje is not null)
+            {
+                <label class="text-danger">@Mensaje</label>
+            }
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                <a href="/IndexPriority" class="btn btn-primary bi bi-arrow-left-square-fill">Atr&aacute;s</a>
+                <button type="submit" class="btn btn-success bi-floppy-fill">Guardar</button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+
+    public string Mensaje = string.Empty;
+    public Product producto { get; set; } = new Product();
+
+    public async Task Guardar()
+    {
+        // var product = (await httpClient.GetFromJsonAsync<List<Product>>("api/product"))!;
+        // if (IsEqual(product))
+        // {
+        //     Mensaje = "Ya existe una prioridad igual";
+        //     return;
+        // }
+        var response = await httpClient.PostAsJsonAsync("api/Products", producto);
+        if (!response.IsSuccessStatusCode)
+        {
+            return;
+        }
+        else
+        {
+            Mensaje = "Guardado correctamente";
+            StateHasChanged();
+        }
+
+    }
+
+    // public bool IsEqual(List<Prioridades> prioridades)
+    // {
+    //     return prioridades.Any(p => p.Descripcion!.ToLower() == Prioridad.Descripcion!.ToLower());
+    // }
+}

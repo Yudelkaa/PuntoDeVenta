@@ -1,7 +1,7 @@
-﻿@page "/indexVenta"
-@rendermode InteractiveServer
+﻿@page "/indexVentas"
 @using Shared.Models
 @inject IJSRuntime JSRuntime
+
 <PageTitle>Principal</PageTitle>
 
 <div class="container-fluid mt-4">
@@ -63,7 +63,7 @@
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
-                                <th>Descuento</th>
+                              
                                 <th>SubTotal</th>
                             </tr>
                         </thead>
@@ -74,8 +74,8 @@
                                     <td>@item.Product.Name</td>
                                     <td>@item.Quantity</td>
                                     <td>$@item.Product.Price</td>
-                                    <td>@(item.Product.Discount * 100)%</td>
-                                    <td>$@(item.Quantity * item.Product.Price * (1 - item.Product.Discount))</td>
+                                   
+                                    <td>$@(item.Quantity * item.Product.Price )</td>
                                 </tr>
                             }
                         </tbody>
@@ -168,12 +168,12 @@
                     </div>
                 </div>
                 <div id="factura" class="modal-body">
-                    @if (venta.Eliminada)
+                  @*   @if (venta.Eliminada)
                     {
                         <div class="position-absolute top-50 start-50 translate-middle" style="z-index: 9999;">
                             <span class="text-danger fw-bold">Venta eliminada</span>
                         </div>
-                    }
+                    } *@
                     <div class="d-flex justify-content-between mb-3">
                         <div>
                             <span class="fw-bold" style="font-size: 12px;">Número de Factura: 00000001<br /> </span>
@@ -191,7 +191,7 @@
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
-                                <th>Descuento</th>
+                              
                                 <th>SubTotal</th>
                             </tr>
                         </thead>
@@ -202,8 +202,8 @@
                                     <td>@item.Product.ProductId</td>
                                     <td>@item.Quantity</td>
                                     <td>$@item.Product.Price</td>
-                                    <td>@(item.Product.Discount * 100)%</td>
-                                    <td>$@(item.Quantity * item.Product.Price * (1 - item.Product.Discount))</td>
+                                 
+                                    <td>$@(item.Quantity * item.Product.Price)</td>
                                 </tr>
                             }
                         </tbody>
@@ -227,7 +227,7 @@
     private List<CartItem> cart = new List<CartItem>();
     private bool end = false;
     private bool factura = false;
-    private Ventas venta = new Ventas();
+    private Sales venta = new Sales();
     private string paymentCondition { get; set; } = "Contado";
     private string paymentMethod { get; set; } = "Efectivo";
     private decimal receivedAmount { get; set; } = 0.0m;
@@ -236,14 +236,14 @@
     {
         products = new List<Product>
         {
-            new Product { ProductId = 1, Name = "Producto 1", Price = 10.00m, Stock = 50, Category = "General", Discount = 0.50m },
-            new Product { ProductId = 2, Name = "Producto 2", Price = 20.00m, Stock = 30, Category = "Frutas", Discount = 0.20m },
-            new Product { ProductId = 3, Name = "Producto 3", Price = 30.00m, Stock = 20, Category = "Sandwiches", Discount = 0.75m },
-            new Product { ProductId = 4, Name = "Producto 4", Price = 40.00m, Stock = 10, Category = "Dulces", Discount = 0m },
-            new Product { ProductId = 5, Name = "Producto 5", Price = 55.00m, Stock = 5, Category = "Vegetales", Discount = 0.12m },
-            new Product { ProductId = 6, Name = "Producto 6", Price = 35.00m, Stock = 55, Category = "esomimo", Discount = 0.14m },
-            new Product { ProductId = 7, Name = "Producto 7", Price = 45.00m, Stock = 22, Category = "aja", Discount = 0.15m },
-            new Product { ProductId = 8, Name = "Producto 8", Price = 55.00m, Stock = 11, Category = "blahblah", Discount = 0.17m }
+            new Product { ProductId = 1, Name = "Producto 1", Price = 10.00m, Stock = 50 },
+            new Product { ProductId = 2, Name = "Producto 2", Price = 20.00m, Stock = 30 },
+            new Product { ProductId = 3, Name = "Producto 3", Price = 30.00m, Stock = 20 },
+            new Product { ProductId = 4, Name = "Producto 4", Price = 40.00m, Stock = 10 },
+            new Product { ProductId = 5, Name = "Producto 5", Price = 55.00m, Stock = 5  },
+            new Product { ProductId = 6, Name = "Producto 6", Price = 35.00m, Stock = 55  },
+            new Product { ProductId = 7, Name = "Producto 7", Price = 45.00m, Stock = 22  },
+            new Product { ProductId = 8, Name = "Producto 8", Price = 55.00m, Stock = 11 }
         };
     }
 
