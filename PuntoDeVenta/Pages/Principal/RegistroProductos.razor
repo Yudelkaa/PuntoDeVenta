@@ -71,12 +71,9 @@
 
     public async Task Guardar()
     {
-        // var product = (await httpClient.GetFromJsonAsync<List<Product>>("api/product"))!;
-        // if (IsEqual(product))
-        // {
-        //     Mensaje = "Ya existe una prioridad igual";
-        //     return;
-        // }
+        var product = (await httpClient.GetFromJsonAsync<List<Product>>("api/products"))!;
+        producto.ProductId =product.Count+1;
+
         var response = await httpClient.PostAsJsonAsync("api/Products", producto);
         if (!response.IsSuccessStatusCode)
         {

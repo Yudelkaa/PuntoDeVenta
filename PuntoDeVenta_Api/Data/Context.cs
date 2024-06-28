@@ -19,8 +19,6 @@ public partial class Context : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<Inventory> Inventories { get; set; }
-
     public virtual DbSet<Paymentmethod> Paymentmethods { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
@@ -48,16 +46,16 @@ public partial class Context : DbContext
             entity.Property(e => e.CategoryId).ValueGeneratedNever();
         });
 
-        modelBuilder.Entity<Inventory>(entity =>
-        {
-            entity.HasKey(e => e.InventoryId).HasName("PK__INVENTOR__F5FDE6B38CB3E2D9");
+        //modelBuilder.Entity<Inventory>(entity =>
+        //{
+        //    entity.HasKey(e => e.InventoryId).HasName("PK__INVENTOR__F5FDE6B38CB3E2D9");
 
-            entity.Property(e => e.InventoryId).ValueGeneratedNever();
+        //    entity.Property(e => e.InventoryId).ValueGeneratedNever();
 
-            entity.HasOne(d => d.Product).WithMany(p => p.Inventories)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__INVENTORY__Produ__656C112C");
-        });
+        //    entity.HasOne(d => d.Product).WithMany(p => p.Inventories)
+        //        .OnDelete(DeleteBehavior.ClientSetNull)
+        //        .HasConstraintName("FK__INVENTORY__Produ__656C112C");
+        //});
 
         modelBuilder.Entity<Paymentmethod>(entity =>
         {

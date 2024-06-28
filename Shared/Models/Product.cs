@@ -9,6 +9,7 @@ namespace PuntoDeVenta_Api.Models;
 public partial class Product
 {
     [Key]
+
     public int ProductId { get; set; }
 
     [StringLength(30)]
@@ -32,8 +33,6 @@ public partial class Product
     [InverseProperty("Products")]
     public virtual Category? Category { get; set; }
 
-    [InverseProperty("Product")]
-    public virtual ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
 
     [InverseProperty("Product")]
     public virtual ICollection<Purchasedetail> Purchasedetails { get; set; } = new List<Purchasedetail>();

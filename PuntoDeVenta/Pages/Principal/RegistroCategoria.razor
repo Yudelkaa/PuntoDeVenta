@@ -1,0 +1,71 @@
+﻿@page "/registroCategoria"
+
+@inject HttpClient httpClient
+
+<EditForm Model="category" OnValidSubmit="Guardar">
+    <DataAnnotationsValidator />
+
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h3>Registro Prioridades</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <label>ProductId</label>
+                    <InputNumber class="form-control mb-3" @bind-Value="category.CategoryId" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Nombre </label>
+                <InputText class="form-control" @bind-Value="category.CategoryName" />
+
+            </div>
+           
+            @if (Mensaje is not null)
+            {
+                <label class="text-danger">@Mensaje</label>
+            }
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                <a href="/IndexPriority" class="btn btn-primary bi bi-arrow-left-square-fill">Atr&aacute;s</a>
+                <button type="submit" class="btn btn-success bi-floppy-fill">Guardar</button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+
+    public string Mensaje = string.Empty;
+    public Category category { get; set; } = new Category();
+
+    public async Task Guardar()
+    {
+        // var product = (await httpClient.GetFromJsonAsync<List<Product>>("api/product"))!;
+        // if (IsEqual(product))
+        // {
+        //     Mensaje = "Ya existe una prioridad igual";
+        //     return;
+        // }
+        var response = await httpClient.PostAsJsonAsync("api/Categories", category);
+        if (!response.IsSuccessStatusCode)
+        {
+            Mensaje = "No guardado";
+            return;
+        }
+        else
+        {
+            Mensaje = "Guardado correctamente";
+            StateHasChanged();
+        }
+
+    }
+
+    // public bool IsEqual(List<Prioridades> prioridades)
+    // {
+    //     return prioridades.Any(p => p.Descripcion!.ToLower() == Prioridad.Descripcion!.ToLower());
+    // }
+}
