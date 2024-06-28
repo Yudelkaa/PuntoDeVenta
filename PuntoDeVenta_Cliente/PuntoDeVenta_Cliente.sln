@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "..\Shared\Shared.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuntoDeVenta_Api", "..\PuntoDeVenta_Api\PuntoDeVenta_Api.csproj", "{2BDAAF71-401E-4C70-A12D-BCE72AEC02C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoDeVenta", "..\PuntoDeVenta\PuntoDeVenta.csproj", "{3646E677-AA9F-45D1-8B75-7B37B42D69AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2BDAAF71-401E-4C70-A12D-BCE72AEC02C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BDAAF71-401E-4C70-A12D-BCE72AEC02C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BDAAF71-401E-4C70-A12D-BCE72AEC02C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3646E677-AA9F-45D1-8B75-7B37B42D69AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3646E677-AA9F-45D1-8B75-7B37B42D69AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3646E677-AA9F-45D1-8B75-7B37B42D69AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3646E677-AA9F-45D1-8B75-7B37B42D69AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
