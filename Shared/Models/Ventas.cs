@@ -31,11 +31,7 @@ namespace Shared.Models
 			[Required(ErrorMessage = "Es requerido")]
 			public DateTime Fecha { get; set; } = DateTime.Now;
 
-			public float SubTotal { get; set; }
-
-			public float Total { get; set; }
-
-			public float ITBS { get; set; }
+		
 
 			public float Recibido { get; set; }
 
@@ -47,7 +43,14 @@ namespace Shared.Models
 			public bool Eliminada { get; set; }
 
 			[ForeignKey("VentaId")]
-
+		
+	
+	
+		public List<CartItem> Items { get; set; } = new List<CartItem>();
+		public decimal SubTotal => Items.Sum(i => i.Quantity * i.Product.Price);
+		public decimal ITBIS => SubTotal * 0.18m;
+		public decimal Total => SubTotal + ITBIS;
+	
 		public ICollection<VentasDetalle> VentasDetalle { get; set; } = new List<VentasDetalle>();
 
 	}

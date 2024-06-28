@@ -21,5 +21,7 @@ namespace Shared.Models
 
 		[Required(ErrorMessage = "Es requerida la cantidad")]
 		public int Cantidad { get; set; }
-	}
+        public Product Producto { get; set; } 
+        public CartItem CartItem { get; set; }
+    }
 }

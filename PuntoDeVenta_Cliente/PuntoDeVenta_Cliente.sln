@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuntoDeVenta_Cliente", "Pun
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "..\Shared\Shared.csproj", "{D220B29C-D464-4B96-A690-198B3FB253CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoDeVenta_Api", "..\PuntoDeVenta_Api\PuntoDeVenta_Api.csproj", "{2BDAAF71-401E-4C70-A12D-BCE72AEC02C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuntoDeVenta_Api", "..\PuntoDeVenta_Api\PuntoDeVenta_Api.csproj", "{2BDAAF71-401E-4C70-A12D-BCE72AEC02C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
